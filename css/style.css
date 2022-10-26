@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+img {
+  vertical-align: middle;
+}
+
+/* =====================================================================================
+                                 All Common CSS ends
+===================================================================================== */
+
+.main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.box {
+  width: 500px;
+  background: tomato;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+.name__box {
+}
+.name {
+    color: #333;
+}
+.post__box {
+}
+.post {
+    color: #444;
+  padding: 50px 0;
+}
+.button__box {
+  padding-bottom: 30px;
+}
+.button__item {
+  width: 100px;
+  padding: 6px 0;
+  cursor: pointer;
+}
