@@ -16,13 +16,37 @@ img {
 }
 
 /* =====================================================================================
-                                 All Common CSS ends
+                                 All Common CSS end
 ===================================================================================== */
 
-.main {
-    height: 100vh;
-    display: flex;
-    align-items: center;
+/* =====================================================================================
+                                 input area start
+===================================================================================== */
+.input__area {
+  display: flex;
+  justify-content: center;
+}
+.input__item {
+  width: 200px;
+  height: 40px;
+  padding: 10px 20px;
+}
+.input__item::placeholder {
+  padding: 0 30px;
+}
+.submit__button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+/* =====================================================================================
+                                 input area end
+===================================================================================== */
+
+.main__area {
+  height: 100vh;
+  display: flex;
+  align-items: center;
 }
 .box {
   width: 500px;
@@ -35,12 +59,12 @@ img {
 .name__box {
 }
 .name {
-    color: #333;
+  color: #333;
 }
 .post__box {
 }
 .post {
-    color: #444;
+  color: #444;
   padding: 50px 0;
 }
 .button__box {
