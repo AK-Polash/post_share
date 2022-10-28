@@ -35,7 +35,8 @@ img {
 .input__item::placeholder {
   padding: 0 30px;
 }
-.submit__button {
+.submit__button,
+.save__button {
   width: 100px;
   height: 40px;
   cursor: pointer;
