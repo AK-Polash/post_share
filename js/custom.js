@@ -1,19 +1,12 @@
-// input fields:
+// variables:
 let userName = document.querySelector("#user__name");
 let userPost = document.querySelector("#user__post");
 let userSubmitButton = document.querySelector(".submit__button");
 let saveButton = document.querySelector(".save__button");
-saveButton.style.display = "none";
-
-// inside html:
-let poster = document.querySelector(".name");
-let postDetails = document.querySelector(".post");
-
-// post buttons:
-let shareButton = document.querySelector(".share__button");
-
 let mainArea = document.querySelector(".main__area");
 let mainArr = [];
+let currentIndex;
+saveButton.style.display = "none";
 
 userSubmitButton.addEventListener("click", () => {
   mainArr.push({ name: userName.value, post: userPost.value });
@@ -45,26 +38,44 @@ function postme() {
   let editArr = Array.from(editButton);
   editArr.map((buttonItem, index) => {
     buttonItem.addEventListener("click", () => {
+      currentIndex = index;
       userName.value = mainArr[index].name;
       userPost.value = mainArr[index].post;
       userSubmitButton.style.display = "none";
       saveButton.style.display = "block";
       postme();
       console.log(mainArr);
-      // console.log(index);
 
       // Save Button:
       saveButton.addEventListener("click", () => {
         saveButton.style.display = "none";
         userSubmitButton.style.display = "block";
-        mainArr.splice(index, 1, {
+        mainArr.splice(currentIndex, 1, {
           name: userName.value,
           post: userPost.value,
         });
+        // userName.value = "";
+        // userPost.value = "";
         postme();
-        console.log(index);
+        console.log(currentIndex);
       });
     });
-    // eikhane save button er code gula rakhle kaj kore na keno..?
+    // eikhane save button er code gula rakhle eto beshi bar loop chole keno..?
+  });
+
+  // share button:
+  let shareButton = document.querySelectorAll(".share__button");
+  let shareArr = Array.from(shareButton);
+  shareArr.map((shareItem, shareIndex, wholeArr) => {
+    shareItem.addEventListener("click", () => {
+      let dataName = mainArr[shareIndex].name;
+      let dataPost = mainArr[shareIndex].post;
+      mainArr.splice(wholeArr.length, 0, {
+        name: dataName,
+        post: dataPost,
+      });
+      postme();
+      console.log(mainArr);
+    });
   });
 }
