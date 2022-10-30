@@ -4,13 +4,14 @@ let userPost = document.querySelector("#user__post");
 let userSubmitButton = document.querySelector(".submit__button");
 let saveButton = document.querySelector(".save__button");
 // ui layout:
-let mainArea = document.querySelector(".main__area");
+let paerntUi = document.querySelector(".main__area");
 // let nameUi = document.querySelector(".name");
 // let postUi = document.querySelector(".post");
 let mainArr = [];
 let currentIndex;
 saveButton.style.display = "none";
 
+// Add post button:
 userSubmitButton.addEventListener("click", () => {
   mainArr.push({ name: userName.value, post: userPost.value });
   userName.value = "";
@@ -19,10 +20,24 @@ userSubmitButton.addEventListener("click", () => {
   console.log(mainArr);
 });
 
+// Save Button:
+saveButton.addEventListener("click", () => {
+  saveButton.style.display = "none";
+  userSubmitButton.style.display = "block";
+  mainArr.splice(currentIndex, 1, {
+    name: userName.value,
+    post: userPost.value,
+  });
+  userName.value = "";
+  userPost.value = "";
+  postme();
+  console.log(mainArr);
+});
+
 function postme() {
-  mainArea.innerHTML = "";
+  paerntUi.innerHTML = "";
   mainArr.map((item) => {
-    mainArea.innerHTML += ` <div class="box"> <div class="name__box"> <h1 class="name"> ${item.name} </h1> </div> <div class="post__box"> <p class="post">${item.post}</p> </div> <div class="button__box"> <button class="button__item delete__button" type="button">Delete</button> <button class="button__item edit__button" type="button">Edit</button> <button class="button__item share__button" type="button">Share</button> </div> </div> `;
+    paerntUi.innerHTML += ` <div class="box"> <div class="name__box"> <h1 class="name"> ${item.name} </h1> </div> <div class="post__box"> <p class="post">${item.post}</p> </div> <div class="button__box"> <button class="button__item delete__button" type="button">Delete</button> <button class="button__item edit__button" type="button">Edit</button> <button class="button__item share__button" type="button">Share</button> </div> </div> `;
   });
 
   // Delete Button:
@@ -51,21 +66,7 @@ function postme() {
     });
   });
 
-  // Save Button:
-  saveButton.addEventListener("click", () => {
-    saveButton.style.display = "none";
-    userSubmitButton.style.display = "block";
-    mainArr.splice(currentIndex, 1, {
-      name: userName.value,
-      post: userPost.value,
-    });
-    userName.value = "";
-    userPost.value = "";
-    postme();
-    console.log(mainArr);
-  });
-
-  // share button:
+  // Share button:
   let shareButton = document.querySelectorAll(".share__button");
   let shareArr = Array.from(shareButton);
   shareArr.map((shareItem, shareIndex, wholeArr) => {
