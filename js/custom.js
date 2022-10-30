@@ -61,6 +61,10 @@ function postme() {
       userPost.value = mainArr[index].post;
       AddPostButton.style.display = "none";
       saveButton.style.display = "block";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      // let box = document.getElementsByClassName("box")[index];
+      // box.style.display = "none";
+      // console.log(box);
       postme();
       console.log(mainArr);
     });
