@@ -3,7 +3,10 @@ let userName = document.querySelector("#user__name");
 let userPost = document.querySelector("#user__post");
 let userSubmitButton = document.querySelector(".submit__button");
 let saveButton = document.querySelector(".save__button");
+// ui layout:
 let mainArea = document.querySelector(".main__area");
+// let nameUi = document.querySelector(".name");
+// let postUi = document.querySelector(".post");
 let mainArr = [];
 let currentIndex;
 saveButton.style.display = "none";
@@ -45,22 +48,21 @@ function postme() {
       saveButton.style.display = "block";
       postme();
       console.log(mainArr);
-
-      // Save Button:
-      saveButton.addEventListener("click", () => {
-        saveButton.style.display = "none";
-        userSubmitButton.style.display = "block";
-        mainArr.splice(currentIndex, 1, {
-          name: userName.value,
-          post: userPost.value,
-        });
-        // userName.value = "";
-        // userPost.value = "";
-        postme();
-        console.log(currentIndex);
-      });
     });
-    // eikhane save button er code gula rakhle eto beshi bar loop chole keno..?
+  });
+
+  // Save Button:
+  saveButton.addEventListener("click", () => {
+    saveButton.style.display = "none";
+    userSubmitButton.style.display = "block";
+    mainArr.splice(currentIndex, 1, {
+      name: userName.value,
+      post: userPost.value,
+    });
+    userName.value = "";
+    userPost.value = "";
+    postme();
+    console.log(mainArr);
   });
 
   // share button:
