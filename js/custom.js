@@ -1,7 +1,7 @@
 // variables:
 let userName = document.querySelector("#user__name");
 let userPost = document.querySelector("#user__post");
-let userSubmitButton = document.querySelector(".submit__button");
+let AddPostButton = document.querySelector(".submit__button");
 let saveButton = document.querySelector(".save__button");
 // ui layout:
 let paerntUi = document.querySelector(".main__area");
@@ -11,8 +11,8 @@ let mainArr = [];
 let currentIndex;
 saveButton.style.display = "none";
 
-// Add post button:
-userSubmitButton.addEventListener("click", () => {
+// Add post Button:
+AddPostButton.addEventListener("click", () => {
   mainArr.push({ name: userName.value, post: userPost.value });
   userName.value = "";
   userPost.value = "";
@@ -23,7 +23,7 @@ userSubmitButton.addEventListener("click", () => {
 // Save Button:
 saveButton.addEventListener("click", () => {
   saveButton.style.display = "none";
-  userSubmitButton.style.display = "block";
+  AddPostButton.style.display = "block";
   mainArr.splice(currentIndex, 1, {
     name: userName.value,
     post: userPost.value,
@@ -59,14 +59,14 @@ function postme() {
       currentIndex = index;
       userName.value = mainArr[index].name;
       userPost.value = mainArr[index].post;
-      userSubmitButton.style.display = "none";
+      AddPostButton.style.display = "none";
       saveButton.style.display = "block";
       postme();
       console.log(mainArr);
     });
   });
 
-  // Share button:
+  // Share Button:
   let shareButton = document.querySelectorAll(".share__button");
   let shareArr = Array.from(shareButton);
   shareArr.map((shareItem, shareIndex, wholeArr) => {
