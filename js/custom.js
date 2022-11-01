@@ -4,7 +4,7 @@ let userPost = document.querySelector("#user__post");
 let AddPostButton = document.querySelector(".submit__button");
 let saveButton = document.querySelector(".save__button");
 // ui layout:
-let paerntUi = document.querySelector(".main__area");
+let parentUi = document.querySelector(".main__area");
 // let nameUi = document.querySelector(".name");
 // let postUi = document.querySelector(".post");
 let mainArr = [];
@@ -18,6 +18,10 @@ AddPostButton.addEventListener("click", () => {
   userPost.value = "";
   postme();
   console.log(mainArr);
+  // if (userName.value === "" || userName.value == null) {
+  //   // preventDefault();
+  //   console.log("enter valid user name");
+  // }
 });
 
 // Save Button:
@@ -30,14 +34,16 @@ saveButton.addEventListener("click", () => {
   });
   userName.value = "";
   userPost.value = "";
+  userName.style.color = "black";
+  userPost.style.color = "black";
   postme();
   console.log(mainArr);
 });
 
 function postme() {
-  paerntUi.innerHTML = "";
+  parentUi.innerHTML = "";
   mainArr.map((item) => {
-    paerntUi.innerHTML += ` <div class="box"> <div class="name__box"> <h1 class="name"> ${item.name} </h1> </div> <div class="post__box"> <p class="post">${item.post}</p> </div> <div class="button__box"> <button class="button__item delete__button" type="button">Delete</button> <button class="button__item edit__button" type="button">Edit</button> <button class="button__item share__button" type="button">Share</button> </div> </div> `;
+    parentUi.innerHTML += ` <div class="box"> <div class="name__box"> <h1 class="name"> ${item.name} </h1> </div> <div class="post__box"> <p class="post">${item.post}</p> </div> <div class="button__box"> <button class="button__item delete__button" type="button">Delete</button> <button class="button__item edit__button" type="button">Edit</button> <button class="button__item share__button" type="button">Share</button> </div> </div> `;
   });
 
   // Delete Button:
@@ -61,6 +67,8 @@ function postme() {
       userPost.value = mainArr[index].post;
       AddPostButton.style.display = "none";
       saveButton.style.display = "block";
+      userName.style.color = "red";
+      userPost.style.color = "red";
       window.scrollTo({ top: 0, behavior: "smooth" });
       // let box = document.getElementsByClassName("box")[index];
       // box.style.display = "none";
