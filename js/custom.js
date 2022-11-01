@@ -3,12 +3,14 @@ let userName = document.querySelector("#user__name");
 let userPost = document.querySelector("#user__post");
 let AddPostButton = document.querySelector(".submit__button");
 let saveButton = document.querySelector(".save__button");
+
 // ui layout:
 let parentUi = document.querySelector(".main__area");
 // let nameUi = document.querySelector(".name");
 // let postUi = document.querySelector(".post");
 let mainArr = [];
 let currentIndex;
+
 saveButton.style.display = "none";
 
 // Add post Button:
@@ -18,10 +20,6 @@ AddPostButton.addEventListener("click", () => {
   userPost.value = "";
   postme();
   console.log(mainArr);
-  // if (userName.value === "" || userName.value == null) {
-  //   // preventDefault();
-  //   console.log("enter valid user name");
-  // }
 });
 
 // Save Button:
