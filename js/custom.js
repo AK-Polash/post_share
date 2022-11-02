@@ -82,6 +82,13 @@ function postme() {
         post: dataPost,
       });
       postme();
+      // scrollLast();
     });
   });
 }
+
+// function scrollLast() {
+//   let lastChildParentUi = parentUi.lastElementChild;
+//   let viewPort = lastChildParentUi.getBoundingClientRect();
+//   window.scrollTo({ top: viewPort.y, behavior: "smooth" });
+// }
