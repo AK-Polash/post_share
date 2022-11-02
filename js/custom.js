@@ -6,10 +6,9 @@ let saveButton = document.querySelector(".save__button");
 
 // ui layout:
 let parentUi = document.querySelector(".main__area");
-// let nameUi = document.querySelector(".name");
-// let postUi = document.querySelector(".post");
 let mainArr = [];
 let currentIndex;
+let axis;
 
 saveButton.style.display = "none";
 
@@ -19,7 +18,6 @@ AddPostButton.addEventListener("click", () => {
   userName.value = "";
   userPost.value = "";
   postme();
-  console.log(mainArr);
 });
 
 // Save Button:
@@ -34,8 +32,8 @@ saveButton.addEventListener("click", () => {
   userPost.value = "";
   userName.style.color = "black";
   userPost.style.color = "black";
+  window.scrollTo({ top: axis, behavior: "smooth" });
   postme();
-  console.log(mainArr);
 });
 
 function postme() {
@@ -51,7 +49,6 @@ function postme() {
     buttonItem.addEventListener("click", () => {
       mainArr.splice(index, 1);
       postme();
-      console.log(mainArr);
     });
   });
 
@@ -68,11 +65,8 @@ function postme() {
       userName.style.color = "red";
       userPost.style.color = "red";
       window.scrollTo({ top: 0, behavior: "smooth" });
-      // let box = document.getElementsByClassName("box")[index];
-      // box.style.display = "none";
-      // console.log(box);
+      axis = window.pageYOffset;
       postme();
-      console.log(mainArr);
     });
   });
 
@@ -88,7 +82,6 @@ function postme() {
         post: dataPost,
       });
       postme();
-      console.log(mainArr);
     });
   });
 }
