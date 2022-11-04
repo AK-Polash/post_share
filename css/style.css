@@ -17,6 +17,9 @@ img {
 body {
   background: #dfe6e9;
 }
+.active {
+  background: crimson !important;
+}
 
 /* =====================================================================================
                                  All Common CSS end
@@ -46,13 +49,13 @@ body {
   text-align: center;
 }
 .input__item:focus-visible {
-  outline: 1.5px solid #9b59b6;
+  outline: 1.5px solid purple;
   width: 450px;
 }
 .submit__button,
 .save__button {
   font-weight: bold;
-  background-color: #9b59b6;
+  background: #b90c56;
   color: #fff;
   width: 200px;
   height: 46px;
@@ -64,9 +67,9 @@ body {
 }
 .submit__button:hover,
 .save__button:hover {
-  color: #9b59b6;
-  background-color: #fff;
-  border: 1.5px solid #9b59b6;
+  color: purple;
+  background: #fff;
+  border: 1.5px solid purple;
 }
 /* =====================================================================================
                                  input area end
@@ -80,7 +83,7 @@ body {
 }
 .box {
   width: 500px;
-  background: #9b59b6;
+  background: linear-gradient(45deg, crimson, purple);
   text-align: center;
   margin: 0 auto;
   padding: 10px 20px;

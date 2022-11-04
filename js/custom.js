@@ -9,6 +9,8 @@ let parentUi = document.querySelector(".main__area");
 let mainArr = [];
 let currentIndex;
 let axis;
+let boxUi;
+let boxUiArr;
 
 saveButton.style.display = "none";
 
@@ -62,11 +64,19 @@ function postme() {
       userPost.value = mainArr[index].post;
       AddPostButton.style.display = "none";
       saveButton.style.display = "block";
-      userName.style.color = "red";
-      userPost.style.color = "red";
+      userName.style.color = "crimson";
+      userPost.style.color = "crimson";
       window.scrollTo({ top: 0, behavior: "smooth" });
       axis = window.pageYOffset;
-      postme();
+
+      boxUi = document.querySelectorAll(".box");
+      boxUiArr = Array.from(boxUi);
+      boxUiArr.map((boxItem) => {
+        boxItem.classList.remove("active");
+        boxUiArr[index].classList.add("active");
+      });
+      // NOTE: code won't run these CSS if the postme() function is called here as it will overwrite Ui html code.
+      // postme();
     });
   });
 
@@ -77,6 +87,7 @@ function postme() {
     shareItem.addEventListener("click", () => {
       let dataName = mainArr[shareIndex].name;
       let dataPost = mainArr[shareIndex].post;
+      // NOTE: here i'm using the splice() method instead of push() method only for fun, though the simple proper way is to use push() method.
       mainArr.splice(wholeArr.length, 0, {
         name: dataName,
         post: dataPost,
@@ -91,4 +102,5 @@ function postme() {
 //   let lastChildParentUi = parentUi.lastElementChild;
 //   let viewPort = lastChildParentUi.getBoundingClientRect();
 //   window.scrollTo({ top: viewPort.y, behavior: "smooth" });
+//   console.log(viewPort.y);
 // }
